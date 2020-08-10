@@ -9,7 +9,18 @@ theme = "slick"
 title = "Slick"
 
 languageCode = "en"
-defaultContentLanguage = "en-us"
+defaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    weight = 1
+    languageName = "EN"
+  [languages.fr]
+    weight = 2
+    languageName = "FR"
+    [languages.fr.params]
+      [languages.fr.params.navigation]
+        help = "Aide"
 
 # Will appear below the footer links with a © sign and the current year
 copyright = "Some Author — All rights reserved."
