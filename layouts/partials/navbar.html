@@ -17,11 +17,18 @@
       {{- end }}
       
       {{ if .IsTranslated }}
-        {{ $lastIt := len $.Site.Home.AllTranslations }}
         <ul class="pure-menu-list pull-end">
           <nav class="LangNav pure-menu-item pure-menu-disabled">
+          {{ $lastIt := len $.Site.Home.AllTranslations }}
+          {{ $i := 1 }}
           {{ range $.Site.Home.AllTranslations }}
+          {{ $k := .Scratch.Get "i" }}
+          {{ if lt $i $lastIt }}
+          <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a> |
+          {{ $i = add $i 1 }}
+          {{ else if eq $i $lastIt }}
             <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
           {{ end}}
           </nav>
 			{{ end }}
